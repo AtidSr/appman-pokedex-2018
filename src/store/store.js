@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import rootSaga from './sagas'
+import rootSaga from './redux/sagas'
 import rootReducer from './rootReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 // we need an initialState otherwise , store will freak out
 const initialState = {
-  posts: {},
+  cards: {},
 }
 
 const sagaMiddleware = createSagaMiddleware()

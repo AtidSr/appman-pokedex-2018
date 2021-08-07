@@ -1,17 +1,18 @@
 import { Posts } from './constants'
 
 const initialState = {
-  posts: [],
+  cards: [],
 }
 
 export const postsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Posts.fetchPosts:
+    case Posts.fetchPokemonCard:
       return state
     case Posts.fetchPostsSuccess:
+      console.log(action.payload)
       return {
         ...state,
-        posts: action.payload,
+        cards: action.payload,
       }
     default:
       return initialState
