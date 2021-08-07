@@ -16,7 +16,7 @@ const COLORS = {
   Fire: '#eb4d4b',
 }
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="App">
       <div>

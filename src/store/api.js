@@ -1,5 +1,5 @@
 export class PostsAPI {
-  fetchPosts = () => {
+  fetchPosts = (params) => {
     return new Promise(function (resolve, reject) {
       const url = 'https://jsonplaceholder.typicode.com/posts/'
       const options = {

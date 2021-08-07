@@ -15,6 +15,7 @@ function* getPostsFromAPI(action) {
     const data = yield call(postsApi.fetchPosts, {
       response: action.payload,
     })
+    console.log('response', data)
     // call the success action with data
     yield put(fetchPostsSuccess(data))
   } catch (e) {
