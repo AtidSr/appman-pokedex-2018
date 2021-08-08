@@ -52,7 +52,7 @@ const AddBarComponent = (props) => {
 
   useEffect(() => {
     filterSelectedCard()
-  }, [filterSelectedCard, pokedex])
+  }, [filterSelectedCard])
 
   const renderCard = () => {
     return filterCard.map((card) => (
