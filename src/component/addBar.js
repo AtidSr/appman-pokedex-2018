@@ -7,26 +7,32 @@ import CardComponent from './card'
 
 const AddBarComponent = (props) => {
   const { fetchPosts } = props
+  const { cards } = props.data
   const [isSearch, setIsSearch] = useState(false)
-
+  const [searchInput, setSearchInput] = useState('')
   useEffect(() => {
-    fetchPosts()
-  }, [fetchPosts])
+    if (isSearch) fetchPosts()
+  }, [fetchPosts, isSearch])
 
-  useEffect(() => {
-    console.log(isSearch)
-  }, [isSearch])
-
+  const renderCard = () => {
+    return cards.map((card) => (
+      <CardComponent cardInfo={card} key={`card_${card.id}`} />
+    ))
+  }
   return (
     <div className="bar-container">
       {isSearch ? (
         <>
           <div className="search-container">
             <div className="search-list-container">
-              <input type="text" className="search-input" />
-              <CardComponent />
-              <CardComponent />
-              <CardComponent />
+              <input
+                type="text"
+                placeholder="Find pokemon"
+                className="search-input"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+              />
+              {cards ? renderCard() : ''}
             </div>
           </div>
           <div

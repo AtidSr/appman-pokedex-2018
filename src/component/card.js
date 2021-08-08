@@ -1,120 +1,116 @@
 import React from 'react'
 import './styles/card.css'
 
-const Mock = {
-  id: 'ex8-98',
-  name: 'Deoxys ex',
-  nationalPokedexNumber: 386,
-  imageUrl: 'https://images.pokemontcg.io/ex8/98.png',
-  imageUrlHiRes: 'https://images.pokemontcg.io/ex8/98_hires.png',
-  supertype: 'Pokémon',
-  subtype: 'EX',
-  ability: {
-    name: 'Form Change',
-    text: "Once during your turn (before your attack), you may search your deck for another Deoxys ex and switch it with Deoxys ex. (Any cards attached to Deoxys ex, damage counters, Special Conditions, and effects on it are now on the new Pokémon.) If you do, put Deoxys ex on top of your deck. Shuffle your deck afterward. You can't use more than 1 Form Change Poké-Power each turn.",
-    type: 'Poké-Power',
-  },
-  hp: '110',
-  retreatCost: ['Colorless', 'Colorless'],
-  convertedRetreatCost: 2,
-  number: '98',
-  artist: 'Mitsuhiro Arita',
-  rarity: 'Rare Holo EX',
-  series: 'EX',
-  set: 'Deoxys',
-  setCode: 'ex8',
-  text: [
-    'When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards.',
-  ],
-  attacks: [
-    {
-      cost: ['Psychic', 'Colorless', 'Colorless'],
-      name: 'Psychic Burst',
-      text: 'You may discard 2 Energy attached to Deoxys ex. If you do, this attack does 50 damage plus 20 more damage for each Energy attached to the Defending Pokémon.',
-      damage: '50+',
-      convertedEnergyCost: 3,
-    },
-  ],
-  weaknesses: [
-    {
-      type: 'Psychic',
-      value: '×2',
-    },
-  ],
-  type: 'Psychic',
-}
-
 const CardComponent = (props) => {
-  const { isFullWidth = true, clickSign = 'add' } = props
-  const progressBar = () => {
+  const { isFullWidth = true, clickSign = 'Add', cardInfo } = props
+
+  const progressBar = (width = 0) => {
     return {
       height: '100%',
       backgroundColor: '#f3701a',
-      width: '10%',
+      width: `${width}%`,
     }
   }
-  return (
-    <div
-      className={`card-container ${
-        isFullWidth ? 'card-full-width' : 'card-half-width'
-      }`}
-    >
-      <div className="card-hide">{clickSign}</div>
-      <img
-        className="card-image"
-        src={Mock.imageUrl}
-        alt={Mock.name}
-      />
-      <div className="card-info">
-        <div className="card-title">{Mock.name}</div>
-        <div className="card-description">
-          <div className="card-description-tilte">HP</div>
-          <div className="bar">
-            <div style={progressBar()}></div>
+
+  const calculateHp = () => {
+    let hp = cardInfo.hp
+    if (hp > 100) hp = 100
+    return Number(hp)
+  }
+
+  const calculateDamage = () => {
+    let damageArray = cardInfo?.attacks?.map(
+      (attack) => `${attack.damage}`.match(/(\d+)/)?.[0],
+    )
+    if (damageArray) {
+      let sumDamage = damageArray.reduce(
+        (acc, current) => (acc += Number(current)),
+        0,
+      )
+      return sumDamage || 0
+    }
+    return 0
+  }
+
+  const calculateWeakness = () => {
+    const weakness = cardInfo?.weaknesses?.length * 100 || 0
+    if (weakness > 100) return 100 / 100
+    return weakness / 100
+  }
+
+  const renderHappiness = () => {
+    const calculateHappiness = Math.ceil(
+      (calculateHp() / 10 +
+        calculateDamage() / 10 +
+        10 -
+        calculateWeakness()) /
+        5,
+    )
+    if (calculateHappiness > 0) {
+      let happinessArray = []
+      for (let i = 0; i < calculateHappiness; i++) {
+        happinessArray.push(
+          <img
+            className="card-happiness-image"
+            src={require('./images/cute.png')}
+            alt="cute"
+            key={`${cardInfo.id}_happiness_${i}`}
+          />,
+        )
+      }
+      return happinessArray
+    }
+    return ''
+  }
+
+  const renderCard = () => {
+    if (!cardInfo) return <></>
+    return (
+      <div
+        className={`card-container ${
+          isFullWidth ? 'card-full-width' : 'card-half-width'
+        }`}
+      >
+        <div className="card-hide">{clickSign}</div>
+        <img
+          className="card-image"
+          src={cardInfo.imageUrl}
+          alt={cardInfo.name}
+        />
+        <div className="card-info">
+          <div className="card-title">{cardInfo.name}</div>
+          <div className="card-description">
+            <div className="card-description-tilte">HP</div>
+            <div className="bar">
+              <div style={progressBar(cardInfo.hp)}></div>
+            </div>
           </div>
-        </div>
-        <div className="card-description">
-          <div className="card-description-tilte">str</div>
-          <div className="bar">
-            <div style={progressBar()}></div>
+          <div className="card-description">
+            <div className="card-description-tilte">str</div>
+            <div className="bar">
+              <div
+                style={progressBar(
+                  cardInfo?.attacks?.length * 50 || 0,
+                )}
+              ></div>
+            </div>
           </div>
-        </div>
-        <div className="card-description">
-          <div className="card-description-tilte">weak</div>
-          <div className="bar">
-            <div style={progressBar()}></div>
+          <div className="card-description">
+            <div className="card-description-tilte">weak</div>
+            <div className="bar">
+              <div
+                style={progressBar(
+                  cardInfo?.weaknesses?.length * 100 || 0,
+                )}
+              ></div>
+            </div>
           </div>
-        </div>
-        <div className="card-happiness">
-          <img
-            className="card-happiness-image"
-            src={require('./cute.png')}
-            alt="cute"
-          />
-          <img
-            className="card-happiness-image"
-            src={require('./cute.png')}
-            alt="cute"
-          />
-          <img
-            className="card-happiness-image"
-            src={require('./cute.png')}
-            alt="cute"
-          />
-          <img
-            className="card-happiness-image"
-            src={require('./cute.png')}
-            alt="cute"
-          />
-          <img
-            className="card-happiness-image"
-            src={require('./cute.png')}
-            alt="cute"
-          />
+          <div className="card-happiness">{renderHappiness()} </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
+  return renderCard()
 }
 
 export default CardComponent

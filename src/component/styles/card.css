@@ -41,6 +41,7 @@
 .card-description-tilte {
   width: 1rem;
   margin-right: 4rem;
+  font-size: 1.3rem;
 }
 
 .bar {
@@ -65,6 +66,7 @@
   right: 1rem;
   color: #f3701a;
   top: 1rem;
+  font-size: 2rem;
 }
 
 .card-container:hover {
