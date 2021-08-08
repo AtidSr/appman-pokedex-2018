@@ -44,7 +44,8 @@ const Mock = {
   type: 'Psychic',
 }
 
-const CardComponent = () => {
+const CardComponent = (props) => {
+  const { isFullWidth = true, clickSign = 'add' } = props
   const progressBar = () => {
     return {
       height: '100%',
@@ -53,8 +54,12 @@ const CardComponent = () => {
     }
   }
   return (
-    <div className="card-container">
-      <div className="card-hide">Add</div>
+    <div
+      className={`card-container ${
+        isFullWidth ? 'card-full-width' : 'card-half-width'
+      }`}
+    >
+      <div className="card-hide">{clickSign}</div>
       <img
         className="card-image"
         src={Mock.imageUrl}

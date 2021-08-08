@@ -1,5 +1,6 @@
 .card-container {
   height: 30vh;
+  /* width: 90%; */
   background-color: #f3f4f7;
   margin: 0.5em;
   padding: 0 1em;
@@ -7,6 +8,14 @@
   align-items: center;
   box-shadow: #d4d4d4 1px 1px;
   position: relative;
+}
+
+.card-full-width {
+  width: 90%;
+}
+
+.card-half-width {
+  width: 45%;
 }
 
 .card-info {
@@ -31,18 +40,19 @@
 
 .card-description-tilte {
   width: 1rem;
-  margin-right: 7rem;
+  margin-right: 4rem;
 }
 
 .bar {
   background-color: #e4e4e4;
-  width: 50%;
+  width: 60%;
   border-radius: 1rem;
   overflow: hidden;
 }
 
 .card-happiness {
-  height: 3.5rem;
+  height: 3rem;
+  position: absolute;
 }
 .card-happiness-image {
   margin-right: 0.5rem;

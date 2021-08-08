@@ -3,6 +3,8 @@ import { fetchPosts } from '../store/cards/action'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import './styles/pokedex.css'
+import CardComponent from './card'
+
 const PokedexComponent = (props) => {
   const { fetchPosts } = props
   useEffect(() => {
@@ -11,6 +13,14 @@ const PokedexComponent = (props) => {
   return (
     <div className="pokedex-container">
       <h1 className="pokedex-header">My pokedex</h1>
+      <div className="pokedex-list-container">
+        <CardComponent isFullWidth={false} clickSign="x" />
+        <CardComponent isFullWidth={false} clickSign="x" />
+        <CardComponent isFullWidth={false} clickSign="x" />
+        <CardComponent isFullWidth={false} clickSign="x" />
+        <CardComponent isFullWidth={false} clickSign="x" />
+        <CardComponent isFullWidth={false} clickSign="x" />
+      </div>
     </div>
   )
 }

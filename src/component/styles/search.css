@@ -26,3 +26,40 @@
 .bar-add-btn:hover {
   cursor: pointer;
 }
+
+.search-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background: #474444;
+  height: 768px;
+  margin: -1px;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-input {
+  font-family: inherit;
+  width: 90%;
+  padding: 0.5rem 1rem;
+  outline: none;
+  background: white url(/static/media/search.42300f5b.png) right
+    no-repeat;
+  background-size: contain;
+  padding-left: 17px;
+  box-shadow: #d4d4d4 1px 1px;
+  border: 1px solid #e6e6e6;
+}
+
+.search-list-container {
+  z-index: 1;
+  overflow-y: scroll;
+  padding: 1em 0;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  align-items: center;
+}

@@ -7,3 +7,10 @@
   text-align: center;
   text-transform: capitalize;
 }
+
+.pokedex-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  height: 618px;
+}
