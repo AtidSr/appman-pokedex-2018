@@ -1,13 +1,67 @@
 .card-container {
-  height: 45vh;
+  height: 30vh;
   background-color: #f3f4f7;
   margin: 0.5em;
+  padding: 0 1em;
   display: flex;
   align-items: center;
+  box-shadow: #d4d4d4 1px 1px;
+  position: relative;
 }
 
 .card-info {
   height: 90%;
   width: 90%;
   margin: 1em;
+}
+
+.card-image {
+  height: 90%;
+}
+.card-title {
+  font-family: Gaegu;
+  font-size: 3rem;
+}
+
+.card-description {
+  display: flex;
+  width: 100%;
+  margin: 0.5rem;
+}
+
+.card-description-tilte {
+  width: 1rem;
+  margin-right: 7rem;
+}
+
+.bar {
+  background-color: #e4e4e4;
+  width: 50%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card-happiness {
+  height: 3.5rem;
+}
+.card-happiness-image {
+  margin-right: 0.5rem;
+  height: 100%;
+}
+
+.card-hide {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  color: #f3701a;
+  top: 1rem;
+}
+
+.card-container:hover {
+  cursor: pointer;
+  box-shadow: #d4d4d4 2px 2px;
+}
+
+.card-container:hover > .card-hide {
+  display: block;
 }

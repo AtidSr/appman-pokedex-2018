@@ -45,13 +45,68 @@ const Mock = {
 }
 
 const CardComponent = () => {
+  const progressBar = () => {
+    return {
+      height: '100%',
+      backgroundColor: '#f3701a',
+      width: '10%',
+    }
+  }
   return (
     <div className="card-container">
-      <div className="card-image">
-        <img src={Mock.imageUrl} alt={Mock.name} />
-      </div>
+      <div className="card-hide">Add</div>
+      <img
+        className="card-image"
+        src={Mock.imageUrl}
+        alt={Mock.name}
+      />
       <div className="card-info">
         <div className="card-title">{Mock.name}</div>
+        <div className="card-description">
+          <div className="card-description-tilte">HP</div>
+          <div className="bar">
+            <div style={progressBar()}></div>
+          </div>
+        </div>
+        <div className="card-description">
+          <div className="card-description-tilte">str</div>
+          <div className="bar">
+            <div style={progressBar()}></div>
+          </div>
+        </div>
+        <div className="card-description">
+          <div className="card-description-tilte">weak</div>
+          <div className="bar">
+            <div style={progressBar()}></div>
+          </div>
+        </div>
+        <div className="card-happiness">
+          <img
+            className="card-happiness-image"
+            src={require('./cute.png')}
+            alt="cute"
+          />
+          <img
+            className="card-happiness-image"
+            src={require('./cute.png')}
+            alt="cute"
+          />
+          <img
+            className="card-happiness-image"
+            src={require('./cute.png')}
+            alt="cute"
+          />
+          <img
+            className="card-happiness-image"
+            src={require('./cute.png')}
+            alt="cute"
+          />
+          <img
+            className="card-happiness-image"
+            src={require('./cute.png')}
+            alt="cute"
+          />
+        </div>
       </div>
     </div>
   )
