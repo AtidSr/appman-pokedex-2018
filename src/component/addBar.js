@@ -11,6 +11,7 @@ const AddBarComponent = (props) => {
   const { cards, pokedex } = props.cardData
   const [isSearch, setIsSearch] = useState(false)
   const [searchInput, setSearchInput] = useState('')
+  const [typeInput, setTypeInput] = useState('')
   const [selectedCard, setSelectedCard] = useState({})
   const [filterCard, setFilterCard] = useState([])
 
@@ -20,9 +21,12 @@ const AddBarComponent = (props) => {
       if (searchInput.length > 0) {
         payload.name = searchInput
       }
+      if (typeInput.length > 0) {
+        payload.type = typeInput
+      }
       fetchPosts(payload)
     }
-  }, [fetchPosts, searchInput, isSearch])
+  }, [fetchPosts, searchInput, typeInput, isSearch])
 
   const filterSelectedCard = useCallback(() => {
     if (pokedex.length === 0) {
@@ -65,13 +69,23 @@ const AddBarComponent = (props) => {
         <>
           <div className="search-container">
             <div className="search-list-container">
-              <input
-                type="text"
-                placeholder="Find pokemon"
-                className="search-input"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-              />
+              <div className="search-input-group">
+                <input
+                  type="text"
+                  placeholder="Find pokemon"
+                  className="search-input name"
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Find pokemon by type"
+                  className="search-input type"
+                  value={typeInput}
+                  onChange={(e) => setTypeInput(e.target.value)}
+                />
+              </div>
+
               {cards ? renderCard() : ''}
             </div>
           </div>
