@@ -41,8 +41,6 @@
 }
 
 .search-input {
-  z-index: 2;
-  position: fixed;
   font-family: inherit;
   font-size: 1.2rem;
   width: 73%;

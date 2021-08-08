@@ -6,12 +6,15 @@ const initialState = {
 }
 
 export const postsReducer = (state = initialState, action) => {
-  console.log(action)
   switch (action.type) {
+    case Posts.fetchPosts:
+      return {
+        ...state,
+      }
     case Posts.addPokemon:
       return {
         ...state,
-        pokedex: action.payload,
+        pokedex: [...state.pokedex, action.payload],
       }
     case Posts.fetchPostsSuccess:
       return {
