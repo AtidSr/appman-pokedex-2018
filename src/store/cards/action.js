@@ -1,40 +1,40 @@
-import { Posts } from './constants'
+import { Pokedex } from './constants'
 
 // *********************************
 // NOTE: Fetch Posts
 // *********************************
 
-export const fetchPostsSuccess = (data) => {
+export const fetchPokedexSuccess = (data) => {
   return {
-    type: Posts.fetchPostsSuccess,
+    type: Pokedex.fetchPokedexSuccess,
     payload: data,
   }
 }
 
-export const fetchPosts = (data) => {
+export const fetchPokedex = (data) => {
   return {
-    type: Posts.fetchPosts,
+    type: Pokedex.fetchPokedex,
     payload: data,
   }
 }
 
-export const fetchPostsError = (data) => {
+export const fetchPokedexError = (data) => {
   return {
-    type: Posts.fetchPostsError,
+    type: Pokedex.fetchPostsError,
     payload: data,
   }
 }
 
 export const addPokemon = (data) => {
   return {
-    type: Posts.addPokemon,
+    type: Pokedex.addPokemon,
     payload: data,
   }
 }
 
 export const removePokemon = (data) => {
   return {
-    type: Posts.removePokemon,
+    type: Pokedex.removePokemon,
     payload: data,
   }
 }

@@ -1,27 +1,27 @@
-import { Posts } from './constants'
+import { Pokedex } from './constants'
 
 const initialState = {
   cards: [],
   pokedex: [],
 }
 
-export const postsReducer = (state = initialState, action) => {
+export const pokedexReducer = (state = initialState, action) => {
   switch (action.type) {
-    case Posts.fetchPosts:
+    case Pokedex.fetchPokedex:
       return {
         ...state,
       }
-    case Posts.addPokemon:
+    case Pokedex.addPokemon:
       return {
         ...state,
         pokedex: [...state.pokedex, action.payload],
       }
-    case Posts.removePokemon:
+    case Pokedex.removePokemon:
       return {
         ...state,
         pokedex: action.payload,
       }
-    case Posts.fetchPostsSuccess:
+    case Pokedex.fetchPokedexSuccess:
       return {
         ...state,
         cards: action.payload,

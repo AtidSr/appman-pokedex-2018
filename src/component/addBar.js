@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { fetchPosts, addPokemon } from '../store/cards/action'
+import { fetchPokedex, addPokemon } from '../store/cards/action'
 
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -7,7 +7,7 @@ import './styles/search.css'
 import CardComponent from './card'
 
 const AddBarComponent = (props) => {
-  const { fetchPosts, addPokemon } = props
+  const { fetchPokedex, addPokemon } = props
   const { cards, pokedex } = props.cardData
   const [isSearch, setIsSearch] = useState(false)
   const [searchInput, setSearchInput] = useState('')
@@ -24,9 +24,9 @@ const AddBarComponent = (props) => {
       if (typeInput.length > 0) {
         payload.type = typeInput
       }
-      fetchPosts(payload)
+      fetchPokedex(payload)
     }
-  }, [fetchPosts, searchInput, typeInput, isSearch])
+  }, [fetchPokedex, searchInput, typeInput, isSearch])
 
   const filterSelectedCard = useCallback(() => {
     if (pokedex.length === 0) {
@@ -113,7 +113,7 @@ const structuredSelector = createStructuredSelector({
   cardData: (state) => state.cardsState,
 })
 
-const mapDispatchToProps = { fetchPosts, addPokemon }
+const mapDispatchToProps = { fetchPokedex, addPokemon }
 export default connect(
   structuredSelector,
   mapDispatchToProps,

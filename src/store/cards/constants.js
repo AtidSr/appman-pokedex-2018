@@ -1,7 +1,7 @@
-export const Posts = {
-  fetchPosts: 'FETCH_POSTS',
-  fetchPostsSuccess: 'FETCH_POSTS_SUCCESS',
-  fetchPostsError: 'FETCH_POSTS_ERROR',
+export const Pokedex = {
+  fetchPokedex: 'FETCH_POKEDEX',
+  fetchPokedexSuccess: 'FETCH_POKEDEX_SUCCESS',
+  fetchPokedexError: 'FETCH_POKEDEX_ERROR',
   addPokemon: 'ADD_POKEMON',
   removePokemon: 'REMOVE_POKEMON',
 }

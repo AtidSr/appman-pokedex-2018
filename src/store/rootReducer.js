@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import { postsReducer } from './cards/reducer-posts'
+import { pokedexReducer } from './cards/reducer'
 
 const rootReducer = combineReducers({
-  cardsState: postsReducer,
+  cardsState: pokedexReducer,
 })
 
 export default rootReducer
