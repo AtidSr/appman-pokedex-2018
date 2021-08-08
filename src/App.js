@@ -1,7 +1,9 @@
 import React from 'react'
 import './App.css'
 import Main from './component/main'
-
+// REDUX
+import { Provider } from 'react-redux'
+import store from './store/store'
 // const COLORS = {
 //   Psychic: '#f8a5c2',
 //   Fighting: '#f0932b',
@@ -18,11 +20,15 @@ import Main from './component/main'
 
 const App = () => {
   return (
-    <div className="App">
-      <div>
-        <Main />
-      </div>
-    </div>
+    <Provider store={store}>
+      <React.StrictMode>
+        <div className="App">
+          <div>
+            <Main />
+          </div>
+        </div>
+      </React.StrictMode>
+    </Provider>
   )
 }
 
