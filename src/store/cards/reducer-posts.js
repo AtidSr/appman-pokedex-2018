@@ -16,6 +16,11 @@ export const postsReducer = (state = initialState, action) => {
         ...state,
         pokedex: [...state.pokedex, action.payload],
       }
+    case Posts.removePokemon:
+      return {
+        ...state,
+        pokedex: action.payload,
+      }
     case Posts.fetchPostsSuccess:
       return {
         ...state,

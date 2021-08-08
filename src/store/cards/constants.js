@@ -3,4 +3,5 @@ export const Posts = {
   fetchPostsSuccess: 'FETCH_POSTS_SUCCESS',
   fetchPostsError: 'FETCH_POSTS_ERROR',
   addPokemon: 'ADD_POKEMON',
+  removePokemon: 'REMOVE_POKEMON',
 }

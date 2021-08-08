@@ -15,7 +15,9 @@ const AddBarComponent = (props) => {
   const [filterCard, setFilterCard] = useState([])
 
   useEffect(() => {
-    if (isSearch) fetchPosts({ name: searchInput, limit: 30 })
+    if (isSearch) {
+      fetchPosts({ name: searchInput, limit: 30 })
+    }
   }, [fetchPosts, searchInput, isSearch])
 
   const filterSelectedCard = useCallback(() => {

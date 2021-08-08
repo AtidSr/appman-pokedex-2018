@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react'
-import { addPokemon } from '../store/cards/action'
+import { removePokemon } from '../store/cards/action'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import './styles/pokedex.css'
 import CardComponent from './card'
 
 const PokedexComponent = (props) => {
+  const { removePokemon } = props
   const { pokedex } = props.data
 
+  const removePokemonFromDex = (info) => {
+    let removeDex = pokedex.filter(
+      (pokemon) => pokemon.id !== info.id,
+    )
+    removePokemon(removeDex)
+  }
   const renderCard = () => {
     return pokedex.map((dex, index) => (
       <CardComponent
@@ -15,12 +22,11 @@ const PokedexComponent = (props) => {
         isFullWidth={false}
         clickSign="x"
         cardInfo={dex}
+        onClickEvent={(info) => removePokemonFromDex(info)}
       />
     ))
   }
-  useEffect(() => {
-    console.log(pokedex)
-  }, [pokedex])
+
   return (
     <div className="pokedex-container">
       <h1 className="pokedex-header">My pokedex</h1>
@@ -35,7 +41,7 @@ const structuredSelector = createStructuredSelector({
   data: (state) => state.cardsState,
 })
 
-const mapDispatchToProps = { addPokemon }
+const mapDispatchToProps = { removePokemon }
 export default connect(
   structuredSelector,
   mapDispatchToProps,

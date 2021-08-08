@@ -31,3 +31,10 @@ export const addPokemon = (data) => {
     payload: data,
   }
 }
+
+export const removePokemon = (data) => {
+  return {
+    type: Posts.removePokemon,
+    payload: data,
+  }
+}
