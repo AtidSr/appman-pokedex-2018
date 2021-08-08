@@ -1,22 +1,35 @@
 import React, { useEffect, useState } from 'react'
-import { fetchPosts } from '../store/cards/action'
+import { fetchPosts, addPokemon } from '../store/cards/action'
+
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import './styles/search.css'
 import CardComponent from './card'
 
 const AddBarComponent = (props) => {
-  const { fetchPosts } = props
-  const { cards } = props.data
+  const { fetchPosts, addPokemon } = props
+  const { cards } = props.cardData
   const [isSearch, setIsSearch] = useState(false)
   const [searchInput, setSearchInput] = useState('')
+  const [selectedCard, setSelectedCard] = useState({})
+
   useEffect(() => {
     if (isSearch) fetchPosts({ name: searchInput })
   }, [fetchPosts, searchInput, isSearch])
 
+  useEffect(() => {
+    if (Object.keys(selectedCard)) {
+      addPokemon(selectedCard)
+    }
+  }, [selectedCard])
+
   const renderCard = () => {
     return cards.map((card) => (
-      <CardComponent cardInfo={card} key={`card_${card.id}`} />
+      <CardComponent
+        cardInfo={card}
+        key={`card_${card.id}`}
+        onClickEvent={(cardInfo) => setSelectedCard(cardInfo)}
+      />
     ))
   }
   return (
@@ -56,10 +69,10 @@ const AddBarComponent = (props) => {
 }
 
 const structuredSelector = createStructuredSelector({
-  data: (state) => state.cardsState,
+  cardData: (state) => state.cardsState,
 })
 
-const mapDispatchToProps = { fetchPosts }
+const mapDispatchToProps = { fetchPosts, addPokemon }
 export default connect(
   structuredSelector,
   mapDispatchToProps,

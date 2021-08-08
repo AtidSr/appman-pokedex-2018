@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
-import { addPokemon } from '../store/pokedex/action'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import './styles/pokedex.css'
 import CardComponent from './card'
 
 const PokedexComponent = (props) => {
-  const { pokedex } = props
   return (
     <div className="pokedex-container">
       <h1 className="pokedex-header">My pokedex</h1>
@@ -22,10 +20,10 @@ const PokedexComponent = (props) => {
 }
 
 const structuredSelector = createStructuredSelector({
-  data: (state) => state.pokedexState,
+  data: (state) => state.cardState,
 })
 
-const mapDispatchToProps = { addPokemon }
+const mapDispatchToProps = {}
 export default connect(
   structuredSelector,
   mapDispatchToProps,

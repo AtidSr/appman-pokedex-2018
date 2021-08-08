@@ -2,7 +2,12 @@ import React from 'react'
 import './styles/card.css'
 
 const CardComponent = (props) => {
-  const { isFullWidth = true, clickSign = 'Add', cardInfo } = props
+  const {
+    isFullWidth = true,
+    clickSign = 'Add',
+    cardInfo,
+    onClickEvent,
+  } = props
 
   const progressBar = (width = 0) => {
     return {
@@ -70,6 +75,7 @@ const CardComponent = (props) => {
         className={`card-container ${
           isFullWidth ? 'card-full-width' : 'card-half-width'
         }`}
+        onClick={() => onClickEvent(cardInfo)}
       >
         <div className="card-hide">{clickSign}</div>
         <img

@@ -24,3 +24,10 @@ export const fetchPostsError = (data) => {
     payload: data,
   }
 }
+
+export const addPokemon = (data) => {
+  return {
+    type: Posts.addPokemon,
+    payload: data,
+  }
+}
