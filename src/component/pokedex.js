@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { removePokemon } from '../store/cards/action'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'

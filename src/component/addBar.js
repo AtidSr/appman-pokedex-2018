@@ -16,7 +16,11 @@ const AddBarComponent = (props) => {
 
   useEffect(() => {
     if (isSearch) {
-      fetchPosts({ name: searchInput, limit: 30 })
+      let payload = { limit: 30 }
+      if (searchInput.length > 0) {
+        payload.name = searchInput
+      }
+      fetchPosts(payload)
     }
   }, [fetchPosts, searchInput, isSearch])
 
