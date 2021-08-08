@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import PostComponent from './component/postComponent'
+import Main from './component/main'
 
 const COLORS = {
   Psychic: '#f8a5c2',
@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <div>
-        <PostComponent />
+        <Main />
       </div>
     </div>
   )

@@ -1,0 +1,13 @@
+.card-container {
+  height: 45vh;
+  background-color: #f3f4f7;
+  margin: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+.card-info {
+  height: 90%;
+  width: 90%;
+  margin: 1em;
+}

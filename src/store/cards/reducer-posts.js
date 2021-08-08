@@ -9,7 +9,6 @@ export const postsReducer = (state = initialState, action) => {
     case Posts.fetchPokemonCard:
       return state
     case Posts.fetchPostsSuccess:
-      console.log(action.payload)
       return {
         ...state,
         cards: action.payload,

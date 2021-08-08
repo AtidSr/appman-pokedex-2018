@@ -1,0 +1,9 @@
+.pokedex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokedex-header {
+  text-align: center;
+  text-transform: capitalize;
+}

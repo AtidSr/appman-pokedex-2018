@@ -1,0 +1,28 @@
+.bar-footer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #ec5650;
+  margin: -1px;
+  padding: 1px;
+  height: 7%;
+}
+
+.bar-add-btn {
+  background: inherit;
+  position: absolute;
+  color: white;
+  font-size: 3.1rem;
+  bottom: 0;
+  border-radius: 50%;
+  width: 8%;
+  text-align: center;
+}
+
+.bar-add-btn:focus,
+.bar-add-btn:hover {
+  cursor: pointer;
+}
