@@ -41,9 +41,11 @@
 }
 
 .search-input {
+  z-index: 2;
+  position: fixed;
   font-family: inherit;
   font-size: 1.2rem;
-  width: 90%;
+  width: 73%;
   padding: 0.5rem 1rem;
   outline: none;
   background: white url('../images/search.png') right no-repeat;

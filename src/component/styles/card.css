@@ -1,6 +1,5 @@
 .card-container {
   height: 30vh;
-  /* width: 90%; */
   background-color: #f3f4f7;
   margin: 0.5em;
   padding: 0 1em;
@@ -8,6 +7,10 @@
   align-items: center;
   box-shadow: #d4d4d4 1px 1px;
   position: relative;
+}
+
+.card-container:nth-child(2) {
+  margin-top: 4em;
 }
 
 .card-full-width {

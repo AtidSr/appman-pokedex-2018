@@ -11,8 +11,8 @@ const AddBarComponent = (props) => {
   const [isSearch, setIsSearch] = useState(false)
   const [searchInput, setSearchInput] = useState('')
   useEffect(() => {
-    if (isSearch) fetchPosts()
-  }, [fetchPosts, isSearch])
+    if (isSearch) fetchPosts({ name: searchInput })
+  }, [fetchPosts, searchInput, isSearch])
 
   const renderCard = () => {
     return cards.map((card) => (

@@ -10,7 +10,7 @@ function* getPosts(action) {
 function* getPostsFromAPI(action) {
   try {
     // call the api
-    const data = yield call(apiCallGet, '/cards', { name: 'p' })
+    const data = yield call(apiCallGet, '/cards', action.payload)
     // call the success action with data
     yield put(fetchPostsSuccess(data.cards))
   } catch (e) {
